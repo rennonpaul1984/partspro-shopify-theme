@@ -1787,7 +1787,8 @@ h6 { font-size: 1em; } // 15px
     margin-top: 4px;
   }
   .h3{
-    color: #ff0000;
+    font-size: 1.733em;
+    color: #2f2f2f;
     padding-bottom: 5px;
   }
   a:hover{
@@ -2098,7 +2099,8 @@ a {
 
 a:hover,
 a:focus {
-  color: $colorLinkHover;
+  // color: $colorLinkHover;
+  color:#ffffff;
 }
 
 button {
@@ -2173,14 +2175,16 @@ html input[disabled] {
 
   &:hover {
     // background-color: $colorBtnPrimaryHover;
-    background-color: #ff0000;
+    background-color:#e50000;
     color: add-to-cart-color($colorBtnPrimary);
     @include transition(background-color 0.05s ease-in);
   }
 
   &:active {
-   background-color: $colorBtnPrimaryActive;
+   // background-color: $colorBtnPrimaryActive;\
+   background-color:  #ff0000;
    color: add-to-cart-color($colorBtnPrimary);
+
   }
 
   &[disabled],
@@ -2205,6 +2209,7 @@ html input[disabled] {
       background-color: $colorBody;
       border: 2px solid $colorBtnPrimaryActive;
       color: $colorBtnPrimaryActive;
+
     }
 
     &[disabled],
@@ -2227,12 +2232,14 @@ input.btn-secondary {
   color: $colorTextBody;
 
   &:hover {
-    background-color: $colorBtnSecondaryHover;
+    // background-color: $colorBtnSecondaryHover;
+    background-color: #d5d2d2;
     color: $colorTextBody;
   }
 
   &:active {
-    background-color: $colorBtnSecondaryActive;
+    // background-color: $colorBtnSecondaryActive;
+    background-color: #d5d2d2;
     color: $colorTextBody;
   }
 }
@@ -2762,7 +2769,7 @@ label.error {
 
     &:hover {
       // color: darken({{ settings.color_footer_social_link }}, 15%);
-      color: #fe0000;
+      color: #ff0000;
       @include transition(color 0.05s ease-in);
     }
   }
@@ -3003,12 +3010,12 @@ $shareBorderColor: #ececec;
   #Site Header
 ==============================================================================*/
 .site-header {
-  padding: $gutter/2 0;
+  padding:10px 0;
   background-color: $headerBackground;
   color: $headerText;
 
   @include at-query ($min, $large) {
-    padding: $gutter 0;
+    padding: 10px 0;
   }
 
   &.site-header--hidden {
@@ -3439,7 +3446,7 @@ $shareBorderColor: #ececec;
 /*     color: $colorPrimary; */
     color:#ffffff;
     text-transform: none;
-    padding: $gutter/3 $gutter*1.5 $gutter/3 $gutter/2;
+    padding: $gutter/3 $gutter*1.2 $gutter/3 $gutter*1.2;
 
     &:hover,
     &:active,
@@ -3653,7 +3660,8 @@ $shareBorderColor: #ececec;
     color: $colorFooterText;
 
     &:hover {
-      color: darken($colorFooterText, 20%);
+      // color: darken($colorFooterText, 20%);
+      color: #ff0000;
     }
   }
 
