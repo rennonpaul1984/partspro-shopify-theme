@@ -1,3 +1,5 @@
+
+
 {% if settings.ajax_cart_method != 'page'%}
 
 /*===========================================================================
@@ -1769,9 +1771,7 @@ h6 { font-size: 1em; } // 15px
 
 .h1 { @extend h1; }
 .h2 { @extend h2; }
-.h3 { @extend h3;
-      color: #ff0000;
-    }
+.h3 { @extend h3;color: #ff0000;}
 .h4 { @extend h4; }
 .h5 { @extend h5; }
 .h6 { @extend h6; }
@@ -1943,16 +1943,25 @@ hr {
     .h1, .h2, .h3, .h4 {
       margin-bottom: 0;
     }
+
   }
 
   .section-header--right {
     display: table-cell;
     vertical-align: middle;
-    text-align: right;
-    width: 335px;
+    text-align: center;
+    width: 200px;
 
     @include at-query ($max, $medium) {
       margin-bottom: $gutter;
+    }
+    a {
+      color: #ff0000;
+      text-transform: uppercase;
+    
+    }
+   a:hover {
+      color: #ff0000;
     }
   }
 }
@@ -2025,6 +2034,7 @@ hr {
 
   .h1 {
     margin-bottom: 10px;
+
   }
 
   #contact_form {
@@ -2175,14 +2185,14 @@ html input[disabled] {
 
   &:hover {
     // background-color: $colorBtnPrimaryHover;
-    background-color:#e50000;
+    background-color:#41719b;
     color: add-to-cart-color($colorBtnPrimary);
     @include transition(background-color 0.05s ease-in);
   }
 
   &:active {
    // background-color: $colorBtnPrimaryActive;\
-   background-color:  #ff0000;
+   background-color:#41719b;
    color: add-to-cart-color($colorBtnPrimary);
 
   }
@@ -2764,7 +2774,7 @@ label.error {
 
   a {
     // color: {{ settings.color_footer_social_link }};
-    color: #ffffff;
+    color:#192e49;
     @include transition(color 0.2s ease-out);
 
     &:hover {
@@ -3010,12 +3020,12 @@ $shareBorderColor: #ececec;
   #Site Header
 ==============================================================================*/
 .site-header {
-  padding:10px 0;
+  padding:0;
   background-color: $headerBackground;
   color: $headerText;
 
   @include at-query ($min, $large) {
-    padding: 10px 0;
+    padding:0;
   }
 
   &.site-header--hidden {
@@ -3107,7 +3117,8 @@ $shareBorderColor: #ececec;
   border: 0 none;
   margin-left: $gutter/2;
   vertical-align: top;
-  background-color: $headerButtonAndSearch;
+  // background-color: $headerButtonAndSearch;
+  background-color: #ff0000;
   color: color-control($headerButtonAndSearch);
 
   @include at-query ($max, $medium) {
@@ -3118,7 +3129,7 @@ $shareBorderColor: #ececec;
   &:focus {
     color: color-control($headerButtonAndSearch);
     // background-color: darken($headerButtonAndSearch, 5%);
-    background-color: #ff0000;
+    background-color:#e50000;
     color: #ffffff;
   }
 }
@@ -3156,6 +3167,7 @@ $shareBorderColor: #ececec;
   width: 100%;
   margin: 0 auto $gutter;
 
+
   .icon-search {
     font-size: 18px;
   }
@@ -3176,6 +3188,7 @@ $shareBorderColor: #ececec;
     font-style: $accentFontStyle;
     font-size: {{ settings.type_button_size }};
     line-height: normal;
+
   }
   input:-ms-input-placeholder {
     line-height: normal;
@@ -3216,7 +3229,8 @@ $shareBorderColor: #ececec;
     input[type="search"] {
       height: 44px;
       border: 0 none;
-      background-color: $headerButtonAndSearch;
+      // background-color: $headerButtonAndSearch;
+      background-color: #666666;
       color: color-control($headerButtonAndSearch);
       @include transition(background-color 0.2s ease-out);
       &:hover, &:focus {
@@ -3232,10 +3246,12 @@ $shareBorderColor: #ececec;
 
 .site-header input::-webkit-input-placeholder {
   color: color-control($headerButtonAndSearch);
+
 }
 
 .site-header input::-moz-placeholder {
   color: color-control($headerButtonAndSearch);
+
 }
 
 
@@ -3262,8 +3278,7 @@ $shareBorderColor: #ececec;
 .site-nav {
   display: none;
   margin: 0;
-  // text-align: left;
-  text-align: center;
+  text-align: left;
   margin-left: -$gutter/2;
   font-family: $accentFontStack;
   font-weight: $accentFontWeight;
@@ -3350,6 +3365,7 @@ $shareBorderColor: #ececec;
     .search-bar {
       margin: 0 $gutter/2 $gutter/2;
       width: auto;
+      border:1px solid red;
       input[type="search"]::-webkit-input-placeholder {
         color: color-control($colorNav);
       }
