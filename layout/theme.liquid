@@ -1,0 +1,124 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-touch no-js"> <!--<![endif]-->
+<head>
+  <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+  <!-- Basic page needs ================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!-- <meta name="google-site-verification" content="pk_oEvRdXIEmw-vjIM2A5PM4hossqUnwn69kDuzXbss" /> -->
+  <meta name="google-site-verification" content="XC94GvwK_m-fuWqtNWNut-1NKQTsSyVlXSiNDvSxf4M" />
+  {% if settings.favicon %}
+  <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png" />
+  {% endif %}
+
+  <!-- Title and description ================================================== -->
+  <title>
+  {{ page_title }}{% if current_tags %}{% assign current_tags_joined = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: current_tags_joined }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+  </title>
+
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  <!-- Product meta ================================================== -->
+  {% include 'social-meta-tags' %}
+
+  <!-- Helpers ================================================== -->
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- CSS ================================================== -->
+  {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+
+  <!-- Header hook for plugins ================================================== -->
+  {{ content_for_header }}
+
+  {% include 'oldIE-js' %}
+
+  {% comment %}
+    If you store has customers disabled, you can remove the following JS file
+  {% endcomment %}
+  {% if template.directory == 'customers' %}
+    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+    {{ 'customer_area.js'  | shopify_asset_url | script_tag }}
+  {% endif %}
+
+  {{ 'jquery-2.2.3.min.js' | asset_url | script_tag }}
+
+  <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'lazysizes.min.js' | asset_url }}" async="async"></script><!--<![endif]-->
+  <!--[if lte IE 9]><script src="{{ 'lazysizes.min.js' | asset_url }}"></script><![endif]-->
+
+  <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+  <!--[if lte IE 9]><script src="{{ 'vendor.js' | asset_url }}"></script><![endif]-->
+
+  <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'theme.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+  <!--[if lte IE 9]><script src="{{ 'theme.js' | asset_url }}"></script><![endif]-->
+
+
+
+	{% include 'magiczoomplus.headers' %}
+{% include 'globo-megamenu-script' %}
+
+
+
+
+
+
+
+
+
+<!-- BeginShopPopAddon --><script>  Shopify.shopPopSettings = {"proof_enabled":true,"proof_show_add_to_cart":false,"proof_mobile_enabled":true,"proof_mobile_position":"Bottom","proof_desktop_position":"Bottom Left","proof_show_on_product_page":true,"proof_hide_notification_after":30,"proof_display_time":10,"proof_interval_time":8,"proof_order_random":false,"proof_fetch_count":30,"proof_cycle":true,"proof_anonymize":true,"proof_anonymize_text":null,"proof_hours_before_obscure":48,"proof_sequential":true,"proof_top":10,"proof_left":10,"proof_right":10,"proof_bottom":10,"proof_background_color":"#FFFFFF","proof_font_color":"#000000","proof_custom_css":null,"proof_border_radius":40,"proof_first_interval_time":1,"proof_locale":"en"};</script><!-- EndShopPopAddon -->
+</head>
+
+<body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
+  
+  {% section 'header' %}
+
+  <main class="wrapper main-content{% if template.name == blank %} main-content--no-template{% endif %}" role="main">
+
+    {{ content_for_layout }}
+
+  </main>
+
+  {% section 'footer' %}
+
+  <script>
+
+  var moneyFormat = '{{ shop.money_format }}';
+
+  var theme = {
+    strings:{
+      product:{
+        unavailable: {{ 'products.product.unavailable' | t | json }},
+        will_be_in_stock_after:{{ 'products.product.will_be_in_stock_after' | t: date: '[date]' | json }},
+        only_left:{{ 'products.product.only_left' | t: count: '1' | json }}
+      },
+      navigation:{
+        more_link: {{ 'layout.navigation.more' | t | json }}
+      },
+      map:{
+        addressError: {{ 'map.errors.address_error' | t | json }},
+        addressNoResults: {{ 'map.errors.address_no_results' | t | json }},
+        addressQueryLimit: {{ 'map.errors.address_query_limit_html' | t | json }},
+        authError: {{ 'map.errors.auth_error_html' | t | json }}
+      }
+    },
+    settings:{
+      cartType: {{ settings.ajax_cart_method | json }}
+    }
+  }
+  </script>
+
+{% if settings.ajax_cart_method != 'page' %}
+
+  {% include 'ajax-cart-template' %}
+
+{% endif %}
+
+<script src="//cdn.codeblackbelt.com/js/modules/shipping-rates-calculator-plus/main.min.js?shop=partspro-ph.myshopify.com"></script>
+</body>
+</html>
