@@ -1,5 +1,8 @@
 {% if cart.item_count > 0 %}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 30020dfd3f7f201147eb9578893872b00c451deb
   <form action="/cart" method="post" class="cart-form" novalidate>
 
     <h1 class="h2">{{ 'cart.general.title' | t }}</h1>
@@ -127,18 +130,27 @@
           {%- endcapture -%}
 
           <p class="cart__policies"><em>{{ taxes_shipping_checkout }}</em></p>
+<<<<<<< HEAD
           
           <button type="submit" name="continue shopping" class="continue-btn">
               <a href="/" class="continue-link" title="Continue shopping">Continue shopping</a>
           </button>
 
           <input type="submit" name="update" class="btn-secondary update-cart" value="{{ 'cart.general.update' | t }}">
+=======
+
+          <input type="submit" name="update" class="btn-secondary update-cart" value="{{ 'cart.general.update' | t }}">
+
+>>>>>>> 30020dfd3f7f201147eb9578893872b00c451deb
           <button type="submit" name="checkout" class="btn">
             <span class="icon icon-cart"></span>
             {{ 'cart.general.checkout' | t }}
           </button>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 30020dfd3f7f201147eb9578893872b00c451deb
           {% if additional_checkout_buttons %}
             <div class="additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
           {% endif %}

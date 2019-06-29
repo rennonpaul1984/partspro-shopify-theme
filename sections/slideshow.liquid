@@ -9,8 +9,13 @@
           {% endif %}
             {%- assign image = block.settings.slide -%}
             {%- capture img_wrapper_id -%}slideShowImageWrapper-{{ section.id }}-{{ image.id }}{%- endcapture -%}
+<<<<<<< HEAD
             {%- assign max_width = 1500-%}
             {%- assign max_height = 2000-%}
+=======
+            {%- assign max_width = 1000 -%}
+            {%- assign max_height = 1500 -%}
+>>>>>>> 30020dfd3f7f201147eb9578893872b00c451deb
 
             {%- include 'image-logic' with width: max_width, height: max_height -%}
 

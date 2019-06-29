@@ -1,4 +1,8 @@
 development:
+<<<<<<< HEAD
   password: 205d115289c4b6f63ee85a619f31b455
+=======
+  password: 8cea96f107899c1a596e339b71286c9b
+>>>>>>> 30020dfd3f7f201147eb9578893872b00c451deb
   theme_id: "41575710793"
   store: https://partspro-ph.myshopify.com
